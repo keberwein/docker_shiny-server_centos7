@@ -9,7 +9,7 @@ RUN yum clean all -y
 RUN yum install -y locales java-1.7.0-openjdk-devel tar wget
 
 # R devtools pre-requisites:
-RUN yum install -y git xml2 libxml2-devel curl curl-devel openssl-devel
+RUN yum install -y git xml2 libxml2-devel curl curl-devel openssl-devel pandoc
 # Plotly needs libcurl
 RUN yum install libcurl-devel -y
 
