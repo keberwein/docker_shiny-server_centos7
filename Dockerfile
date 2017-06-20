@@ -2,8 +2,8 @@ FROM centos:centos7
 MAINTAINER kris eberwein
 
 RUN yum -y install epel-release
-# RUN yum update -y
-# RUN yum upgrade -y
+RUN yum update -y
+RUN yum upgrade -y
 RUN yum clean all -y
 # RUN yum reinstall -y glibc-common
 RUN yum install -y locales java-1.7.0-openjdk-devel tar wget
@@ -27,7 +27,6 @@ ENV LANG en_US.UTF-8
 
 RUN yum install -y openssl098e supervisor passwd pandoc
 
-# RUN wget http://download2.rstudio.org/rstudio-server-rhel-0.99.484-x86_64.rpm
 # Go for the bleading edge:
 RUN wget https://s3.amazonaws.com/rstudio-dailybuilds/rstudio-server-rhel-0.99.697-x86_64.rpm
 RUN yum -y install --nogpgcheck rstudio-server-rhel-0.99.697-x86_64.rpm \
@@ -35,7 +34,7 @@ RUN yum -y install --nogpgcheck rstudio-server-rhel-0.99.697-x86_64.rpm \
 
 RUN groupadd rstudio \
 	&& useradd -g rstudio rstudio \
-	&& echo rstudio | passwd rstudio --stdin 
+	&& echo rstudio | passwd rstudio --stdin
 
 RUN wget https://download3.rstudio.org/centos5.9/x86_64/shiny-server-1.4.0.756-rh5-x86_64.rpm
 RUN yum -y install --nogpgcheck shiny-server-1.4.0.756-rh5-x86_64.rpm \
