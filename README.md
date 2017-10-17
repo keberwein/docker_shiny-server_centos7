@@ -39,7 +39,7 @@ docker images
 ### Run your Shiny-Server Docker image.
 
 ```
-docker run -p 3838:3838 -p 8787:8787 shiny-server
+docker run -p 3838:3838 -p 8787:8787 -d shiny-server
 ```
 
 * Shiny-Server is running at localhost:3838
